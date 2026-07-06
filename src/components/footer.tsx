@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { navItems, site } from "@/lib/site";
 
@@ -12,6 +13,26 @@ export function Footer() {
             A focused platform for Pakistan&apos;s furniture industry to meet,
             discover, exhibit, and grow.
           </p>
+          <a
+            href={site.organizerUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="group mt-8 inline-grid gap-3"
+            aria-label={`Visit ${site.organizer}`}
+          >
+            <span className="text-[10px] font-black uppercase tracking-[0.26em] text-gold">
+              Brought to you by
+            </span>
+            <span className="relative block h-20 w-64 max-w-full overflow-hidden rounded-[12px] border border-gold/20 bg-olive transition duration-300 group-hover:border-gold/70">
+              <Image
+                src="/images/horizon-black-bg.jpeg"
+                alt="Horizon Events logo"
+                fill
+                sizes="256px"
+                className="object-cover object-[center_52%] transition duration-500 group-hover:scale-[1.035]"
+              />
+            </span>
+          </a>
         </div>
         <div>
           <h3 className="font-montserrat font-bold text-gold">Pages</h3>

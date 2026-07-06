@@ -32,6 +32,45 @@ export default function Home() {
     <>
       <Hero />
 
+      <section className="bg-cream px-5 py-5 sm:px-8 lg:py-6 xl:px-10">
+        <a
+          href={site.organizerUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="group mx-auto grid max-w-[1440px] overflow-hidden rounded-[20px] border border-olive/10 bg-olive text-cream shadow-[0_22px_70px_rgba(26,35,27,0.16)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_30px_90px_rgba(26,35,27,0.22)] lg:grid-cols-[minmax(300px,0.72fr)_1fr_auto]"
+          aria-label={`Visit ${site.organizer}`}
+        >
+          <div className="relative border-b border-cream/10 p-5 sm:p-6 lg:border-b-0 lg:border-r">
+            <div className="absolute inset-y-0 left-0 w-1 bg-gold" />
+            <p className="mb-3 text-[10px] font-black uppercase tracking-[0.28em] text-gold sm:text-xs">
+              Brought to you by
+            </p>
+            <div className="relative h-24 w-full max-w-[320px] overflow-hidden rounded-[14px] border border-gold/20 bg-olive shadow-[0_18px_44px_rgba(0,0,0,0.22)] transition duration-500 group-hover:border-gold/55 group-hover:shadow-[0_22px_54px_rgba(0,0,0,0.28)] sm:h-28">
+              <Image
+                src="/images/horizon-black-bg.jpeg"
+                alt="Horizon Events logo"
+                fill
+                sizes="(min-width: 1024px) 320px, calc(100vw - 80px)"
+                className="object-cover object-[center_52%]"
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center p-5 sm:p-6">
+            <p className="max-w-2xl font-montserrat text-xl font-black uppercase leading-tight text-cream sm:text-2xl">
+              Event management and on-ground execution partner for
+              Pakistan&apos;s 1st Furniture Trade Show.
+            </p>
+          </div>
+
+          <div className="flex items-center justify-start border-t border-cream/10 p-5 sm:p-6 lg:justify-center lg:border-l lg:border-t-0">
+            <span className="inline-flex min-h-11 items-center rounded-[14px] border border-gold/45 px-5 text-xs font-black uppercase tracking-[0.18em] text-gold transition duration-300 group-hover:border-gold group-hover:bg-gold group-hover:text-cream">
+              Visit website
+            </span>
+          </div>
+        </a>
+      </section>
+
       <section className="section-spacing overflow-hidden">
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 xl:px-10">
           <div className="grid gap-12 md:grid-cols-[0.9fr_1.1fr] md:items-end">
@@ -122,7 +161,7 @@ export default function Home() {
                   className="flex items-center gap-4 border-b border-olive/10 py-6"
                 >
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold/12 text-sm font-black text-gold">
-                    ✓
+                    +
                   </span>
                   <span className="font-montserrat text-xl font-black uppercase text-olive">
                     {reason}
@@ -133,6 +172,37 @@ export default function Home() {
             <ButtonLink href="/book-booth" className="mt-9">
               Book a Booth
             </ButtonLink>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-spacing bg-olive/[0.035]">
+        <div className="mx-auto grid max-w-[1440px] gap-10 px-5 sm:px-8 md:grid-cols-[0.72fr_1.28fr] md:items-center xl:px-10">
+          <div className="fade-up">
+            <p className="mb-5 text-xs font-black uppercase tracking-[0.32em] text-gold">
+              Floor plan preview
+            </p>
+            <h2 className="font-montserrat text-5xl font-black uppercase leading-none text-olive md:text-7xl">
+              Real hall. Real booths.
+            </h2>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-olive/72">
+              A preview of Hall No. 06 at Expo Center Karachi, showing booth
+              zones, entrances, booked spaces, and exhibitor layout.
+            </p>
+            <ButtonLink href="/book-booth" className="mt-8">
+              Book a Booth
+            </ButtonLink>
+          </div>
+
+          <div className="image-mask relative overflow-hidden border border-olive/10 bg-cream shadow-[0_28px_80px_rgba(26,35,27,0.12)]">
+            <Image
+              src="/images/floorplan.jpeg"
+              alt="Furniture Trade Show floor plan for Expo Center Karachi Hall No. 06"
+              width={1600}
+              height={900}
+              sizes="(min-width: 768px) 58vw, 100vw"
+              className="h-auto w-full object-contain"
+            />
           </div>
         </div>
       </section>

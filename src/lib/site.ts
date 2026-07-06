@@ -8,6 +8,8 @@ export const site = {
   social: "@furnituretradeshowpk",
   whatsapp: "923116771224",
   boothPrice: "PKR 150,000",
+  organizer: "Horizon Events",
+  organizerUrl: "https://horizonevents.myleadpartner.com",
 };
 
 export const navItems = [
