@@ -3,14 +3,44 @@ export const site = {
   domain: "https://furnituretradeshow.pk",
   dates: "7, 8, 9 August 2026",
   venue: "Expo Center, Karachi",
-  phone: "+92 311 6771224",
+  phone: "+92 331 2222543",
   email: "info@furnituretradeshow.pk",
-  social: "@furnituretradeshowpk",
-  whatsapp: "923116771224",
-  boothPrice: "PKR 150,000",
+  social: "@pakistansfurnituretradeshow",
+  instagram: "https://instagram.com/pakistansfurnituretradeshow",
+  facebook: "https://facebook.com/pakistansfurnituretradeshow",
+  whatsapp: "923312222543",
+  boothPrice: "Starting from PKR 60,000",
+  boothPriceRange: "PKR 60,000 - 75,000",
   organizer: "Horizon Events",
-  organizerUrl: "https://horizonevents.myleadpartner.com",
+  organizerUrl: "https://horizonevents.com",
 };
+
+export const boothTiers = [
+  {
+    name: "Silver",
+    price: "PKR 60,000",
+    numericPrice: 60000,
+    note: "Entry exhibitor space",
+  },
+  {
+    name: "Gold",
+    price: "PKR 65,000",
+    numericPrice: 65000,
+    note: "Enhanced visitor visibility",
+  },
+  {
+    name: "Diamond",
+    price: "PKR 70,000",
+    numericPrice: 70000,
+    note: "Premium placement option",
+  },
+  {
+    name: "Platinum",
+    price: "PKR 75,000",
+    numericPrice: 75000,
+    note: "Highest tier exhibitor space",
+  },
+];
 
 export const navItems = [
   { href: "/", label: "Home" },
@@ -60,6 +90,6 @@ export const faqs = [
 export const stats = [
   { value: "3", label: "Event days" },
   { value: "1st", label: "Dedicated furniture trade show" },
-  { value: "150K", label: "Booth price PKR" },
+  { value: "60K", label: "Booths starting PKR" },
   { value: "2026", label: "August launch" },
 ];

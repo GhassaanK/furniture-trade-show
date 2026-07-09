@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BoothTiers } from "@/components/booth-tiers";
 import { ButtonLink } from "@/components/button-link";
 import { FAQList } from "@/components/faq";
 import { Hero } from "@/components/hero";
-import { LocationBlock } from "@/components/location-block";
 import { categories, site } from "@/lib/site";
 
 const audience = [
@@ -13,11 +13,10 @@ const audience = [
   ["04", "Trade buyers", "Compare products, pricing conversations, and supply opportunities."],
 ];
 
-const reasons = [
-  "Direct furniture buyer reach",
-  "Focused B2B exposure",
-  "Premium brand visibility",
-  "Early position in the first edition",
+const exhibitorSignals = [
+  ["Buyer rooms", "Retailers, designers, suppliers, procurement teams"],
+  ["Hall proof", "Floor plan, booth zones, and Expo Center placement"],
+  ["Tiered entry", "Silver to Platinum spaces from PKR 60,000"],
 ];
 
 const tickerItems = [
@@ -32,6 +31,7 @@ export default function Home() {
     <>
       <Hero />
 
+      {/* organizer credits */}
       <section className="bg-cream px-5 py-5 sm:px-8 lg:py-6 xl:px-10">
         <a
           href={site.organizerUrl}
@@ -71,6 +71,7 @@ export default function Home() {
         </a>
       </section>
 
+      {/* first edition section */}
       <section className="section-spacing overflow-hidden">
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 xl:px-10">
           <div className="grid gap-12 md:grid-cols-[0.9fr_1.1fr] md:items-end">
@@ -126,52 +127,99 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-spacing">
-        <div className="mx-auto grid max-w-[1440px] gap-12 px-5 sm:px-8 md:grid-cols-[1.05fr_0.95fr] md:items-center xl:px-10">
-          <div className="image-mask relative min-h-[380px] overflow-hidden sm:min-h-[460px] lg:min-h-[620px]">
+      <section className="section-spacing bg-olive text-cream">
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 xl:px-10">
+          <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
+            <div className="fade-up flex flex-col justify-between">
+              <div>
+                <p className="mb-5 text-xs font-black uppercase tracking-[0.32em] text-gold">
+                  Exhibitor opportunity
+                </p>
+                <h2 className="font-montserrat text-[clamp(3.4rem,8vw,8rem)] font-black uppercase leading-[0.84] text-cream">
+                  Don&apos;t just display. Own the room.
+                </h2>
+                <p className="mt-7 max-w-2xl text-lg leading-8 text-cream/68">
+                  Put your furniture brand inside the first dedicated trade
+                  environment for Pakistan&apos;s furniture market, built for
+                  product discovery, buyer conversations, and serious booth
+                  visibility.
+                </p>
+              </div>
+
+              <div className="mt-10 grid gap-px overflow-hidden rounded-[18px] border border-cream/10 bg-cream/10 sm:grid-cols-3">
+                {exhibitorSignals.map(([title, text]) => (
+                  <div
+                    key={title}
+                    className="bg-olive p-5 transition duration-300 hover:bg-gold hover:text-olive"
+                  >
+                    <p className="font-montserrat text-xl font-black uppercase">
+                      {title}
+                    </p>
+                    <p className="mt-3 text-sm leading-6 text-current/68">
+                      {text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <ButtonLink href="/book-booth">Book a Booth</ButtonLink>
+                <ButtonLink href="/why-exhibit" variant="light">
+                  Why Exhibit
+                </ButtonLink>
+              </div>
+            </div>
+
+            <div className="grid gap-5">
+              <div className="image-mask relative min-h-[360px] overflow-hidden sm:min-h-[460px] lg:min-h-[560px]">
             <Image
               src="/images/exhibit-furniture-display.png"
               alt="Premium furniture display for exhibitors"
               fill
-              sizes="(min-width: 768px) 50vw, 100vw"
+              sizes="(min-width: 1024px) 52vw, 100vw"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-olive/56 to-transparent" />
-            <div className="absolute bottom-8 left-8 right-8 border-t border-gold/60 pt-6 text-cream">
-              <p className="text-xs font-black uppercase tracking-[0.28em] text-gold">
-                Exhibitor booth price
-              </p>
-              <p className="mt-3 font-montserrat text-5xl font-black">
-                {site.boothPrice}
-              </p>
-            </div>
-          </div>
-
-          <div className="fade-up">
-            <p className="mb-5 text-xs font-black uppercase tracking-[0.32em] text-gold">
-              Why exhibit
-            </p>
-            <h2 className="font-montserrat text-5xl font-black uppercase leading-none text-olive md:text-7xl">
-              Put your brand where the buyers are.
-            </h2>
-            <div className="mt-10 border-t border-olive/10">
-              {reasons.map((reason) => (
-                <div
-                  key={reason}
-                  className="flex items-center gap-4 border-b border-olive/10 py-6"
-                >
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold/12 text-sm font-black text-gold">
-                    +
-                  </span>
-                  <span className="font-montserrat text-xl font-black uppercase text-olive">
-                    {reason}
-                  </span>
+                <div className="absolute inset-0 bg-gradient-to-t from-olive/70 via-olive/12 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6 grid gap-3 sm:grid-cols-2">
+                  <div className="border border-gold/40 bg-olive/82 p-5 backdrop-blur">
+                    <p className="text-xs font-black uppercase tracking-[0.24em] text-gold">
+                      Booth tiers
+                    </p>
+                    <p className="mt-3 font-montserrat text-4xl font-black">
+                      {site.boothPriceRange}
+                    </p>
+                  </div>
+                  <div className="border border-cream/18 bg-cream/10 p-5 backdrop-blur">
+                    <p className="text-xs font-black uppercase tracking-[0.24em] text-gold">
+                      Venue
+                    </p>
+                    <p className="mt-3 font-montserrat text-2xl font-black uppercase">
+                      Expo Center Karachi
+                    </p>
+                  </div>
                 </div>
-              ))}
+              </div>
+
+              <div className="rounded-[20px] border border-cream/10 bg-cream p-5 text-olive">
+                <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-[0.24em] text-gold">
+                      Select your space
+                    </p>
+                    <h3 className="mt-2 font-montserrat text-2xl font-black uppercase">
+                      Silver, Gold, Diamond, Platinum
+                    </h3>
+                  </div>
+                  <Link
+                    href="/book-booth"
+                    className="text-xs font-black uppercase tracking-[0.18em] text-gold transition hover:text-olive"
+                  >
+                    Request pricing
+                  </Link>
+                </div>
+                <BoothTiers compact />
+              </div>
             </div>
-            <ButtonLink href="/book-booth" className="mt-9">
-              Book a Booth
-            </ButtonLink>
           </div>
         </div>
       </section>
@@ -262,27 +310,128 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-spacing bg-olive/[0.035]">
+      <section className="section-spacing bg-cream">
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 xl:px-10">
-          <div className="mb-12 grid gap-8 md:grid-cols-[0.7fr_1.3fr]">
-            <h2 className="fade-up font-montserrat text-5xl font-black uppercase leading-none text-olive md:text-7xl">
-              Venue Details.
-            </h2>
+          <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
+            <div className="fade-up">
+              <p className="mb-5 text-xs font-black uppercase tracking-[0.32em] text-gold">
+                Plan your visit
+              </p>
+              <h2 className="font-montserrat text-[clamp(3.4rem,8vw,8rem)] font-black uppercase leading-[0.84] text-olive">
+                Expo Center Karachi.
+              </h2>
+            </div>
             <p className="fade-up max-w-2xl text-lg leading-8 text-olive/72">
-              Event details are kept simple: register free, plan your visit to
-              Expo Center Karachi, or request booth information.
+              A central exhibition venue for furniture buyers, retailers,
+              designers, manufacturers, suppliers, and trade visitors across
+              Karachi.
             </p>
           </div>
-          <div className="grid gap-8 md:grid-cols-2">
-            <LocationBlock />
-            <div>
-              <FAQList limit={3} />
-              <Link
-                href="/faq"
-                className="mt-8 inline-flex text-xs font-black uppercase tracking-[0.22em] text-gold"
-              >
-                View all FAQs
-              </Link>
+
+          <div className="mt-12 grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
+            <div className="relative min-h-[520px] overflow-hidden rounded-[24px] bg-olive text-cream shadow-[0_30px_100px_rgba(26,35,27,0.18)]">
+              <div className="absolute inset-0 opacity-[0.18]">
+                <Image
+                  src="/images/floorplan.jpeg"
+                  alt="Furniture Trade Show hall floor plan"
+                  fill
+                  sizes="(min-width: 1024px) 58vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-br from-olive via-olive/92 to-olive/68" />
+              <div className="relative flex min-h-[520px] flex-col justify-between p-6 sm:p-8 lg:p-10">
+                <div className="max-w-2xl">
+                  <p className="text-xs font-black uppercase tracking-[0.28em] text-gold">
+                    Venue address
+                  </p>
+                  <h3 className="mt-4 font-montserrat text-4xl font-black uppercase leading-none sm:text-6xl">
+                    {site.venue}
+                  </h3>
+                  <p className="mt-5 max-w-xl text-base leading-7 text-cream/68">
+                    Hall planning, booth zones, entrance movement, and visitor
+                    flow are being shaped around a focused furniture trade
+                    experience.
+                  </p>
+                </div>
+
+                <div className="grid gap-3 sm:grid-cols-3">
+                  {[
+                    ["Dates", site.dates],
+                    ["City", "Karachi"],
+                    ["Entry", "Free registration"],
+                  ].map(([label, value]) => (
+                    <div
+                      key={label}
+                      className="border border-cream/14 bg-cream/8 p-5 backdrop-blur"
+                    >
+                      <p className="text-[10px] font-black uppercase tracking-[0.22em] text-gold">
+                        {label}
+                      </p>
+                      <p className="mt-3 font-montserrat text-xl font-black uppercase">
+                        {value}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="grid gap-5">
+              <div className="rounded-[24px] border border-olive/10 bg-olive/[0.035] p-6 sm:p-8">
+                <p className="text-xs font-black uppercase tracking-[0.28em] text-gold">
+                  Before you arrive
+                </p>
+                <div className="mt-6 grid gap-5">
+                  {[
+                    [
+                      "Register first",
+                      "Visitor entry is free, but registration keeps event updates and access guidance clear.",
+                    ],
+                    [
+                      "Arrive with time",
+                      "Expo Center traffic can build up around major events, especially during peak visitor hours.",
+                    ],
+                    [
+                      "Use the floor plan",
+                      "The hall preview helps visitors and exhibitors understand zones before event day.",
+                    ],
+                  ].map(([title, text]) => (
+                    <div key={title} className="border-t border-olive/10 pt-5">
+                      <h3 className="font-montserrat text-xl font-black uppercase text-olive">
+                        {title}
+                      </h3>
+                      <p className="mt-2 leading-7 text-olive/68">{text}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                  <ButtonLink href="/location">View Location</ButtonLink>
+                  <ButtonLink href="/register" variant="secondary">
+                    Register Free
+                  </ButtonLink>
+                </div>
+              </div>
+
+              <div className="rounded-[24px] border border-olive/10 bg-cream p-6 shadow-[0_24px_70px_rgba(26,35,27,0.08)] sm:p-8">
+                <div className="mb-5 flex items-center justify-between gap-4">
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-[0.24em] text-gold">
+                      Quick answers
+                    </p>
+                    <h3 className="mt-2 font-montserrat text-2xl font-black uppercase text-olive">
+                      Visit questions
+                    </h3>
+                  </div>
+                  <Link
+                    href="/faq"
+                    className="shrink-0 text-xs font-black uppercase tracking-[0.18em] text-gold transition hover:text-olive"
+                  >
+                    All FAQs
+                  </Link>
+                </div>
+                <FAQList limit={2} />
+              </div>
             </div>
           </div>
         </div>

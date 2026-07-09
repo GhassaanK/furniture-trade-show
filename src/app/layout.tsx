@@ -5,7 +5,7 @@ import { FloatingButtons } from "@/components/floating-buttons";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import { createSeo, pageSeo } from "@/lib/seo";
-import { site } from "@/lib/site";
+import { boothTiers, site } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -80,13 +80,23 @@ export default function RootLayout({
         validFrom: "2026-07-04",
       },
       {
-        "@type": "Offer",
+        "@type": "AggregateOffer",
         name: "Exhibitor booth booking",
-        price: "150000",
+        lowPrice: "60000",
+        highPrice: "75000",
         priceCurrency: "PKR",
         availability: "https://schema.org/LimitedAvailability",
         url: `${site.domain}/book-booth`,
         validFrom: "2026-07-04",
+        offerCount: boothTiers.length.toString(),
+        offers: boothTiers.map((tier) => ({
+          "@type": "Offer",
+          name: `${tier.name} booth`,
+          price: tier.numericPrice.toString(),
+          priceCurrency: "PKR",
+          availability: "https://schema.org/LimitedAvailability",
+          url: `${site.domain}/book-booth`,
+        })),
       },
     ],
   };

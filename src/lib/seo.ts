@@ -106,7 +106,7 @@ export const pageSeo = {
   bookBooth: {
     title: "Book a Booth at Pakistan's Furniture Trade Show",
     description:
-      "Book an exhibitor booth for Pakistan's 1st Furniture Trade Show. Limited spaces available at PKR 150,000 per booth.",
+      "Book an exhibitor booth for Pakistan's 1st Furniture Trade Show. Silver, Gold, Diamond, and Platinum booth tiers are available from PKR 60,000 to PKR 75,000.",
     path: "/book-booth",
     keywords: [
       "book furniture exhibition booth",

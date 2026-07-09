@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BoothTiers } from "@/components/booth-tiers";
 import { CtaBanner } from "@/components/cta-banner";
 import { FeatureCard } from "@/components/feature-card";
 import { Section } from "@/components/section";
@@ -23,16 +24,19 @@ export default function WhyExhibitPage() {
         </div>
       </Section>
       <Section title="Booth details" className="bg-olive/[0.035]">
-        <div className="dark-surface rounded-[20px] p-8 text-cream md:p-12">
+        <div className="mb-8 max-w-2xl">
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-gold">
-            Booth price
+            Silver to Platinum
           </p>
-          <h2 className="mt-3 font-montserrat text-5xl font-black">{site.boothPrice}</h2>
-          <p className="mt-4 max-w-2xl text-cream/72">
-            Submit your booth request and the event team will confirm availability,
-            details, and next steps.
+          <h2 className="mt-3 font-montserrat text-5xl font-black text-olive">
+            {site.boothPriceRange}
+          </h2>
+          <p className="mt-4 text-olive/72">
+            Submit your booth request and the event team will confirm tier
+            availability, placement details, and next steps.
           </p>
         </div>
+        <BoothTiers />
       </Section>
       <CtaBanner
         title="Book your exhibitor booth"

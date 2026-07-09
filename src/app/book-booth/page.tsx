@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { BoothForm } from "@/components/booth-form";
+import { BoothTiers } from "@/components/booth-tiers";
 import { CtaBanner } from "@/components/cta-banner";
 import { FeatureCard } from "@/components/feature-card";
 import { Section } from "@/components/section";
@@ -14,16 +15,19 @@ export default function BookBoothPage() {
       <Section
         eyebrow="Book a booth"
         title="Exhibitor spaces are limited"
-        intro={`Showcase your brand at ${site.venue}. Booth price: ${site.boothPrice}.`}
+        intro={`Showcase your brand at ${site.venue}. Booth tiers are available from Silver to Platinum, with pricing from ${site.boothPriceRange}.`}
       >
         <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="stagger-group grid gap-5">
             <FeatureCard title="Direct buyer reach" text="Meet furniture buyers, retailers, designers, and procurement leads." />
             <FeatureCard title="Brand visibility" text="Launch your presence early in Pakistan's first dedicated furniture show." />
-            <FeatureCard title="Booth price" text={`${site.boothPrice} per booth for Phase 1 bookings.`} />
+            <FeatureCard title="Four booth tiers" text="Choose from Silver, Gold, Diamond, and Platinum booth options based on your visibility needs." />
           </div>
           <BoothForm />
         </div>
+      </Section>
+      <Section title="Booth tiers" className="bg-olive/[0.035]">
+        <BoothTiers />
       </Section>
       <Section title="Exhibitor benefits" className="bg-olive/[0.035]">
         <div className="stagger-group grid gap-5 md:grid-cols-3">
